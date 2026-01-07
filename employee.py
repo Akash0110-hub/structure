@@ -1,14 +1,16 @@
+import sys
 
-# Accept employee details
-employee_name = input("Enter Employee Name: ")
-employee_id = input("Enter Employee ID: ")
-department = input("Enter Department: ")
-monthly_salary = float(input("Enter Monthly Salary: "))
+if len(sys.argv) != 5:
+    print("Usage: python employee.py <name> <id> <department> <monthly_salary>")
+    sys.exit(1)
 
-# Calculate annual salary
+employee_name = sys.argv[1]
+employee_id = sys.argv[2]
+department = sys.argv[3]
+monthly_salary = float(sys.argv[4])
+
 annual_salary = monthly_salary * 12
 
-# Determine performance category
 if annual_salary >= 1200000:
     performance = "Excellent"
 elif annual_salary >= 800000:
@@ -20,11 +22,8 @@ elif annual_salary >= 300000:
 else:
     performance = "Poor"
 
-# Display employee details
-print("\nEmployee Details")
-print("----------------")
-print("Name:", employee_name)
-print("Employee ID:", employee_id)
-print("Department:", department)
-print("Annual Salary:", annual_salary)
-print("Performance Category:", performance)
+print(f"Employee Name: {employee_name}")
+print(f"Employee ID: {employee_id}")
+print(f"Department: {department}")
+print(f"Annual Salary: {annual_salary}")
+print(f"Performance: {performance}")
